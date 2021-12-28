@@ -1,0 +1,86 @@
+.bg-footer {
+    background: #1a1a1a;
+}
+.section-space--ptb_80 {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.wt {
+    color: #fff !important;
+}
+.footer-title {
+    position: relative;
+    margin-bottom: 40px;
+}
+.footer-title h6 {
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 0px;
+    padding-bottom: 15px;
+    font-family: "Open Sans", sans-serif;
+}
+
+h6 {
+    font-size: 18px;
+}
+.footer-title::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: #ffffff;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.footer-contents ul li {
+    margin-bottom: 15px;
+}
+.footer-contents .newsletter-box {
+    position: relative;
+}
+.footer-contents .newsletter-box input {
+    background: #fff;
+    width: 100%;
+    border: none;
+    padding: 8px 50px 8px 10px;
+    color: #333;
+    border-radius: 25px;
+    position: relative;
+}
+.footer-contents .newsletter-box button {
+    background: #fff;
+    background: transparent;
+    color: #333;
+    position: absolute;
+    right: 0px;
+    border: none;
+    font-size: 20px;
+    padding: 0px 17px;
+    top: 11px;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+.flaticon-paper-plane:before {
+    content: "\f11d";
+}
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-style: normal;
+}
+.footer-social-share{
+  display: flex;
+}
+.footer-social-share li {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 30px;
+}
+.footer-icon{
+  width: 70px !important;
+}

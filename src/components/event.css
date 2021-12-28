@@ -1,0 +1,43 @@
+.single-event-wrap .event-image a img {
+    width: 100%;
+}
+.event-content {
+    margin-top: 25px;
+}
+.mb-15 {
+    margin-bottom: 15px;
+}
+h4 {
+    font-size: 35px;
+}
+.event-content .event-date {
+    font-weight: 600;
+    color: #707070;
+    margin-bottom: 15px;
+}
+.event-content .event-date span {
+    margin-right: 20px;
+}
+p:last-child {
+    margin-bottom: 0;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.ticket-btn {
+    border: 2px solid #F56C2A;
+    height: 44px;
+    padding: 0 45px;
+    border-radius: 25px;
+    background: #fff;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.ticket-btn:hover {
+    background: #F56C2A;
+    color: #fff;
+}
+.mt-40 {
+    margin-top: 40px;
+}

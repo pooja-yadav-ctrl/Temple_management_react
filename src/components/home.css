@@ -1,0 +1,200 @@
+.bg-overlay-black {
+    position: relative;
+}
+
+.hero-style-01 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 720px;
+}
+.hindu-hero-bg {
+    background: url(../assets/background-image.png);
+}
+.bg-overlay-black::before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    content: '';
+    border-radius: 5px;
+}
+.hero-btn {
+    border: 2px solid #ddd;
+    padding: 5px 40px;
+    background: #fff;
+    color: #333;
+    border-radius: 25px;
+}
+
+a, button, img, input, span {
+    -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+a, button {
+    color: inherit;
+    display: inline-block;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.text-white {
+    color: #fff !important;
+    font-size: 70px;
+    font-family: inherit;
+    line-height: 82px;
+    font-weight: 300;
+}
+.hero-boder-top {
+    position: relative;
+    margin-top: 150px;
+}
+.hero-boder-top::after {
+    content: url(../assets/border-top.png);
+    left: 50%;
+    bottom: 100%;
+    position: absolute;
+}
+.section-space--pt_90 {
+    padding-top: 90px;
+}
+.single-feature-wrap {
+    margin-top: 30px;
+}
+.text-center {
+    text-align: center !important;
+}
+.single-feature-wrap .feature-icon {
+    margin-bottom: 25px;
+}
+.single-feature-wrap .feature-content {
+    padding: 0 12px;
+}
+.single-feature-wrap .feature-content .feature-title {
+    margin-bottom: 15px;
+}
+
+h5 {
+    font-size: 22px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #333333;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.3;
+    font-family: "Libre Baskerville", serif;
+}
+
+/* tai-about area */
+
+.section-space--ptb_120 {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.align-items-center {
+    -ms-flex-align: center !important;
+    -webkit-box-align: center !important;
+    -webkit-align-items: center !important;
+    align-items: center !important;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.col-06__right {
+    width: 600px;
+    max-width: 100%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.section-title {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+h3 {
+    font-size: 40px !important;
+}
+.section-title.left-style::after {
+    left: 0%;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+}
+.section-title::after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    height: 4px;
+    width: 75px;
+    background: #54B5BF;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.service-area {
+    z-index: 3;
+    position: relative;
+}
+.section-title.center-style::after {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.single-activities-wrap {
+    margin-top: 30px;
+}
+.activities-imgaes {
+    display: block;
+}
+.activities-imgaes img {
+    width: 100%;
+}
+.activities-content {
+    margin-top: 30px;
+    padding: 0 14px;
+}
+.activities-content .widget-metadata {
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.activities-content .activities-title {
+    position: relative;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+}
+.activities-content .activities-title::after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    height: 4px;
+    width: 75px;
+    background: #F56C2A;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
