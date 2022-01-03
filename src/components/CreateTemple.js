@@ -12,43 +12,89 @@ function CreateTemple(props) {
 	const [isMessage, setIsMessage] = useState(false)
   const [message, setmessage] = useState(null)
   const [messageType, setmessageType] = useState("success")
+	const [image, setImage] = useState()
+  const [imagePreview, setImagePreview] = useState()
 	const TempleInfo = props?.location?.state?.templeInfo
+	const user_id = localStorage.getItem('id')
+
 	useEffect(() => {
 		
 	},[])
 
 	function handleClick() {
-			window.location.href = "/";
+			window.location.href = "/home";
 	}
-	const handleChange = (event,key) => {
-		event.preventDefault();
-		setTemple({...temple, temple: {...temple.temple, [key]: event.target.value}}) 
-	}	
 
+	// const handleChange = (event,key) => {
+	// 	event.preventDefault();
+	// 	setTemple({...temple, temple: {...temple.temple, [key]: event.target.value}}) 
+	// }	
+	const handleChange = async(event) => {
+    event.preventDefault();
+    const { name, value } = event.target
+			setTemple(prevData => {
+				return ({ ...prevData, [name]: value})
+			})
+  }
+	const uploadImage = async (e) => {
+    const file = e.target?.files[0];
+    setImage(file) 
+    const base64 = await convertBase(file);
+    setImagePreview(base64)
+  }
+
+  const convertBase = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+
+      fileReader.onerror = (error) => {
+        reject(error);
+      }
+    })
+  }
+	
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const res = createTemple(temple)
+		const formData = new FormData();
+		Object.entries(temple).map(([key, value], index) => {
+      formData.append(`temple[${key}]`, value)
+    })
+		formData.append('temple[temple_image]', image);
+		formData.append('temple[id]',user_id)
+
+		const res = createTemple(formData)	
 		res.then((result) => {
-			setTempleId(result.data.temple.id)
+			setTempleId(result?.data?.temple?.id)
 			setIsMessage(true)
 			setmessageType("success")
 			setmessage(result?.data?.message)
 			setTimeout(() => {
 				setIsMessage(false)
-				window.location.reload()
+				 	window.location.reload()
 			}, 2000);
 		})
 	} 
 	const handleUpdate = async(e) => {
 		e.preventDefault();
-		const res = updateTempleInfo(TempleInfo?.id, temple)
+		const formData = new FormData();
+		Object.entries(temple).map(([key, value], index) => {
+      formData.append(`temple[${key}]`, value)
+    })
+		formData.append('temple[temple_image]', image);
+		formData.append('temple[id]',user_id)
+		const res = updateTempleInfo(TempleInfo?.id, formData)
 		res.then((result) => {
 			setIsMessage(true)
 			setmessageType("success")
 			setmessage(result?.data?.message)
 			setTimeout(() => {
 				setIsMessage(false)
-				window.location.reload()
+				window.location.href = "/list";
 			}, 2000);
 		})
 	} 
@@ -131,6 +177,11 @@ function CreateTemple(props) {
 										Zip code <span class="text-danger"> *</span></label> 
 											<input type="text" id="ans" name="zipcode" placeholder="Enter zipcode" defaultValue={TempleInfo?.zipcode} onChange = {(e)=>handleChange(e,'zipcode')} onblur="validate(6)"/> 
 										</div>
+										<div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">
+										Temple image <span class="text-danger"> *</span></label> 
+											<input type="file" id="ans" accept="image" name="temple_image" placeholder="Upload image" defaultValue={TempleInfo?.temple_image} onChange = {(e)=>uploadImage(e)} onblur="validate(6)"/> 
+										</div> 
+										{ props?.location?.state?.update === 'true' ? <img src={TempleInfo?.logo} height="100px" /> : <img src={imagePreview} height="100px" /> }						
 								</div>
 								<div class="row justify-content-center">
 								{ props?.location?.state?.update === 'true' ?	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleUpdate}> Update Now</button> </div>

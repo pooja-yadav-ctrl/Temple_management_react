@@ -3,7 +3,8 @@ import api from './api';
 import axios from 'axios';
 
 export const createTemple = (params) => {
-  return api.post(`/temples`, params)
+    console.log('params',params);
+    return api.post(`/temples`,params)
 }
 export const signInUser = (params) => {
     return  axios.create({

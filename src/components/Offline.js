@@ -9,7 +9,7 @@ import QRCode from '../assets/offline-donation/QR_CODE_FOR_DONATION.png'
 import Sbi from '../assets/offline-donation/sbi-pay.png'
 export const Offline = () => {
     function handleClick() {
-      window.location.href = "/";
+      window.location.href = "/home";
     }
 
   return (

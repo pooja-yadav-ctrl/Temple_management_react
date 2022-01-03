@@ -22,7 +22,7 @@ export const GalleryImages = () => {
    
    
   function handleClick() {
-      window.location.href = "/";
+      window.location.href = "/home";
     }
  
   return (

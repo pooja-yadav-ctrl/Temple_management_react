@@ -19,7 +19,7 @@ function App() {
   const authentication_token = localStorage.getItem('msg');
   console.log('authentication_token',authentication_token);
   useEffect(() => {
-    if(window.location.pathname ==="/login")
+    if(window.location.pathname ==="/")
     {
       setLogIn('true')
     }
@@ -32,7 +32,7 @@ function App() {
        <Router>
          <Header/>
          <Switch>
-           <Route path="/" component={Home} exact={true}/>
+           <Route path="/home" component={Home} exact={true}/>
            <Route path="/gallery-image" component={GalleryImages}/>
            <Route path="/gallery-video" component={GalleryVideos}/>
            <Route path="/events" component={Events}/>

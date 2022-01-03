@@ -93,6 +93,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
 import { signInUser } from '../api/allApi'
+import CreateTemple from './CreateTemple';
 
 function LogIn(props) {
     const [user, setUser] = useState({})
@@ -102,7 +103,7 @@ function LogIn(props) {
     const [message, setmessage] = useState(null)
     const [messageType, setmessageType] = useState("success")
     const [submit , setSubmit] = useState(false)
-    
+
     const handleValidation = (event) => {
       let formIsValid = true;
   
@@ -149,10 +150,11 @@ function LogIn(props) {
             setIsMessage(true)
             setmessageType("success")
             setmessage("you have successfully logged in")
+            localStorage.setItem('id', result?.data?.id);
             localStorage.setItem('msg', result?.data?.authentication_token);
             setTimeout(() => {
               setIsMessage(false)
-              window.location.href = `/`
+              window.location.href = `/home`
             }, 1500);
           }
         })

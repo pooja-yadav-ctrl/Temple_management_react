@@ -12,7 +12,7 @@ function CreateHistory(props) {
   const TempleInfo = props?.location?.state?.templeInfo
 
 	function handleClick() {
-    window.location.href = "/";
+    window.location.href = "/home";
   }
 
   const handleChange = (event,key) => {

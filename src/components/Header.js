@@ -19,7 +19,7 @@ export default function Header() {
   const handleShow = () => setShow(true);
   
    function handleClick() {
-      window.location.href = "/";
+      window.location.href = "/home";
     }
     function handleImage(){
       window.location.href = "/gallery-image"

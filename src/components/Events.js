@@ -14,7 +14,7 @@ import Event9 from '../assets/events/event-09.png';
 
 export const Events = () => {
   function handleClick() {
-      window.location.href = "/";
+      window.location.href = "/home";
     }
   return (
     <div>

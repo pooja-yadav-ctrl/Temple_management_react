@@ -8,7 +8,7 @@ import './galleryImage.css';
 export const GalleryVideos = () => {
 
    function handleClick() {
-      window.location.href = "/";
+      window.location.href = "/home";
     }
 
   return (

@@ -4,7 +4,7 @@ import './online.css'
 
 export const Online = () => {
   function handleClick() {
-      window.location.href = "/";
+      window.location.href = "/home";
     }
   function handleSubmit(){
     //  e.preventDefault();

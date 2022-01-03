@@ -7,6 +7,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import CreateIcon from '@material-ui/icons/Create';
 import Dropdown from 'react-bootstrap/Dropdown'
+import Event1 from '../assets/events/event-01.png';
 
 function TempleList() {
   let history = useHistory();
@@ -23,7 +24,7 @@ function TempleList() {
 	},[])
   
   function handleClick() {
-    window.location.href = "/";
+    window.location.href = "/home";
   }
 
   function handleUpdate(templeInfo) {
@@ -57,8 +58,46 @@ function TempleList() {
         </div>
       </div>
       </div>
-      {isMessage && <Alert className='message mt-2' variant={messageType}>{message}</Alert> }
-      <Table striped hover className='templetable mt-3'>
+      <div class="site-wrapper-reveal">
+        <div class="events-area section-space--pb_120 section-space--pt_90">
+          <div class="container">
+          {isMessage && <Alert className='message mt-2' variant={messageType}>{message}</Alert> }
+            <div class="row">
+            {templeInfo?.temples?.map((row) => { 
+              var temple_list = row;
+              return(
+                <div class="col-lg-4 col-md-6">
+                <div class="single-event-wrap mt-40">
+                  <div class="event-image">
+                    <a><img src={row?.logo} class="img-fluid" alt="Event Image"/></a>
+                  </div>
+                  <div class="event-content">
+                    <div class="content-title">
+                        <a>
+                          <h4 class="mb-15">{row.temple_name}</h4>
+                        </a>
+                        <p>{row.description}</p>
+                        <div class="event-date temple-time"><span>@ {row?.start_time?.substr(11, 5)} AM to {row?.end_time?.substr(11, 5)} PM </span></div>
+                    </div>
+                    <div class="ticket-button-box mt-20">
+                        <a href="#" class="btn ticket-btn">History</a>
+                        <IconButton aria-label="delete" className='createIcon ticket-btn' onClick={(e)=>handleUpdate(temple_list)}>
+                          <CreateIcon />
+                        </IconButton>
+                        <IconButton aria-label="delete" className='createIcon' onClick={(e)=>handleDelete(temple_list)}>
+                          <DeleteIcon />
+                      </IconButton>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              )
+              })}  
+            </div>
+          </div>
+        </div>
+      </div> 
+      {/* <Table striped hover className='templetable mt-3'>
         <thead>
           <tr>
             <th>Temple Name</th>
@@ -100,7 +139,7 @@ function TempleList() {
               ) 
           })}
         </tbody>
-      </Table>
+      </Table> */}
     </div>
   );
 }
