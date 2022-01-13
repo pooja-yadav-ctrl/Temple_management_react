@@ -13,11 +13,18 @@ import { useState, useEffect } from 'react';
 import CreateTemple from './components/CreateTemple';
 import TempleList from './components/TempleList';
 import CreateHistory from './components/CreateHistory';
+import TempleHistory from './components/TempleHistory';
+import CreatePooja from './components/CreatePooja';
+import TemplePooja from './components/TemplePooja';
+import AddImage from './components/AddImage';
+import AddVedio from './components/AddVedio';
 
 function App() {
   const [logIn, setLogIn] = useState('false')
   const authentication_token = localStorage.getItem('msg');
-  console.log('authentication_token',authentication_token);
+  // const pathname = window.location.pathname
+  // console.log('P.......athname',pathname);
+  
   useEffect(() => {
     if(window.location.pathname ==="/")
     {
@@ -27,22 +34,29 @@ function App() {
 
   return (
     <div className="App">
-       {logIn === 'true' && <LogIn/>}
+       {logIn === 'true'&& <LogIn/>}
        {logIn === 'false' && 
        <Router>
          <Header/>
          <Switch>
-           <Route path="/home" component={Home} exact={true}/>
-           <Route path="/gallery-image" component={GalleryImages}/>
-           <Route path="/gallery-video" component={GalleryVideos}/>
-           <Route path="/events" component={Events}/>
-           <Route path="/offline-donation" component={Offline}/>
-           <Route path="/online-donation" component={Online}/>
-           <Route path="/list" component={TempleList}/>
-           {authentication_token === "bKwD3Nkur5nyTFrNzD7_" &&  <>
-           <Route path="/create" component={CreateTemple}/>
-           <Route path="/create-history" component={CreateHistory}/>
-           </>} 
+            <Route path="/khajrana" component={Home}/>
+            <Route path="/gallery-image" component={GalleryImages}/>
+            <Route path="/gallery-video" component={GalleryVideos}/>
+            <Route path="/events" component={Events}/>
+            <Route path="/offline-donation" component={Offline}/>
+            <Route path="/online-donation" component={Online}/> 
+            <Route path="/history" component={TempleHistory}/>
+            <Route path="/pooja" component={TemplePooja}/>
+           {authentication_token === "bKwD3Nkur5nyTFrNzD7_" &&  
+            <>
+              <Route path="/create" component={CreateTemple}/>
+              <Route path="/create-history" component={CreateHistory}/>
+              <Route path="/list" component={TempleList}/>
+              <Route path="/create-pooja" component={CreatePooja}/>
+              <Route path="/add-image" component={AddImage}/>
+              <Route path="/add-video" component={AddVedio}/>
+            </>
+           } 
          </Switch>
          <Footer/> 
        </Router>

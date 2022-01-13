@@ -180,4 +180,36 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.3;
     font-family: "Libre Baskerville", serif;
 }
-
+.back-btn{
+    width: 30%;
+}
+.red{
+  text-align: justify;
+  color: #CC0000;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.history{
+  color: grey;
+  font-size: 14px;
+}
+.ml-35{
+  margin-left: 35%;
+  margin-bottom: 20px;
+}
+/* .gallery-img{
+    width: 100%;
+    height: 200px;
+} */
+.history-image{
+    margin-left: 91% !important;
+}
+.history-card{
+    margin-top: -360px !important;
+    left: -120px;
+}
+.alert-msg{
+    width: fit-content;
+    margin-left: 612px;
+    top: 80px;
+}

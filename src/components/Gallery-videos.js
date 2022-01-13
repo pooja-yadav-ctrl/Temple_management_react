@@ -1,16 +1,18 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import './galleryImage.css';
-// import MyVideo1 from "../assets/gallery-videos/second.mp4";
-// import MyVideo2 from "../assets/gallery-videos/third.mp4";
-// import MyVideo3 from "../assets/gallery-videos/fourth.mp4";
-// import MyVideo4 from "../assets/gallery-videos/fifth.mp4";
+import { getTempleImage}  from "../api/allApi";
 
 export const GalleryVideos = () => {
-
+  const [image, setImage] = useState([])
    function handleClick() {
-      window.location.href = "/home";
+      window.location.href = "/khajrana";
     }
-
+    useEffect(() => {
+      const res = getTempleImage()
+        res.then((result) => {
+          setImage(result.data)
+        })
+    },[])
   return (
     <div>
       <div class="breadcrumb-area--bg-two bg-overlay-black-4">
@@ -27,74 +29,30 @@ export const GalleryVideos = () => {
         </div>
       </div>
      </div>
-     {/* <div class="site-wrapper-reveal">
+     <div class="site-wrapper-reveal">
         <div class="gallery-area section-space--pb_120 section-space--pt_90">
             <div class="container">
               <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                  <div class="single-gallery-wrap">
-                    <a href={MyVideo4} class="img-popup">
-                    <video width="100%" height="100%" preload="auto">
-                        <source src={MyVideo4} type="video/mp4" class="img-fluid " />
-                        Your browser does not support HTML5 video.
-                    </video>
-                    </a>
-                  </div>
-                  </div>
-                   <div class="col-lg-4 col-md-6 col-sm-6">
-                  <div class="single-gallery-wrap">
-                    <a href={MyVideo1} class="img-popup">
-                    <video width="100%" height="100%" preload="auto">
-                        <source src={MyVideo1} type="video/mp4" class="img-fluid " />
-                        Your browser does not support HTML5 video.
-                    </video>
-                    </a>
-                  </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                  <div class="single-gallery-wrap">
-                    <a href={MyVideo2} class="img-popup">
-                    <video width="100%" height="100%" preload="auto">
-                        <source src={MyVideo2} type="video/mp4" class="img-fluid " />
-                        Your browser does not support HTML5 video.
-                    </video>
-                    </a>
-                  </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                  <div class="single-gallery-wrap">
-                    <a href={MyVideo3} class="img-popup">
-                    <video width="100%" height="100%" preload="auto">
-                        <source src={MyVideo3} type="video/mp4" class="img-fluid " />
-                        Your browser does not support HTML5 video.
-                    </video>
-                    </a>
-                  </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                  <div class="single-gallery-wrap">
-                    <a href={MyVideo4} class="img-popup">
-                    <video width="100%" height="100%" preload="auto">
-                        <source src={MyVideo4} type="video/mp4" class="img-fluid " />
-                        Your browser does not support HTML5 video.
-                    </video>
-                    </a>
-                  </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                  <div class="single-gallery-wrap">
-                    <a href={MyVideo1} class="img-popup">
-                    <video width="100%" height="100%" preload="auto">
-                        <source src={MyVideo1} type="video/mp4" class="img-fluid " />
-                        Your browser does not support HTML5 video.
-                    </video>
-                    </a>
-                  </div>
+              <div class="col-lg-4 col-md-6 col-sm-6">
+              {image?.photo_video_gallerys?.map((row)=>{
+                  return(
+                  <>
+                    <div class="single-gallery-wrap">
+                      {row?.gallery_video!=null && 
+                        <a href={row?.gallery_video} class="img-popup">
+                        <video width="100%" height="100%" preload="auto">
+                            <source src={row?.gallery_video} type="video" class="img-fluid " />
+                            Your browser does not support HTML5 video.
+                        </video>
+                          </a>
+                      }  
+                    </div>     
+                  </>)})}
                   </div>
               </div>
             </div>
         </div>
-     </div> */}
+     </div>
    </div>  
   )
 }

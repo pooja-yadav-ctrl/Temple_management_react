@@ -4,8 +4,11 @@ import './online.css';
 import { createTemple, updateTempleInfo }  from "../api/allApi";
 import TempleList from './TempleList';
 import Alert from 'react-bootstrap/Alert';
+import { useHistory } from "react-router-dom";
+import CreateHistory from './CreateHistory';
 
 function CreateTemple(props) {
+	let history = useHistory();
 	const [temple, setTemple]= useState([])
 	const [templeInfo, setTempleInfo]= useState('false')
 	const [templeId, setTempleId]= useState()
@@ -17,25 +20,18 @@ function CreateTemple(props) {
 	const TempleInfo = props?.location?.state?.templeInfo
 	const user_id = localStorage.getItem('id')
 
-	useEffect(() => {
-		
-	},[])
-
 	function handleClick() {
-			window.location.href = "/home";
+			window.location.href = "/khajrana";
 	}
 
-	// const handleChange = (event,key) => {
-	// 	event.preventDefault();
-	// 	setTemple({...temple, temple: {...temple.temple, [key]: event.target.value}}) 
-	// }	
 	const handleChange = async(event) => {
     event.preventDefault();
     const { name, value } = event.target
 			setTemple(prevData => {
 				return ({ ...prevData, [name]: value})
 			})
-  }
+  	}
+
 	const uploadImage = async (e) => {
     const file = e.target?.files[0];
     setImage(file) 
@@ -98,6 +94,7 @@ function CreateTemple(props) {
 			}, 2000);
 		})
 	} 
+
 	return (
 		<div>
 			<div class="breadcrumb-area--bg-two bg-overlay-black-4">
@@ -181,9 +178,10 @@ function CreateTemple(props) {
 										Temple image <span class="text-danger"> *</span></label> 
 											<input type="file" id="ans" accept="image" name="temple_image" placeholder="Upload image" defaultValue={TempleInfo?.temple_image} onChange = {(e)=>uploadImage(e)} onblur="validate(6)"/> 
 										</div> 
-										{ props?.location?.state?.update === 'true' ? <img src={TempleInfo?.logo} height="100px" /> : <img src={imagePreview} height="100px" /> }						
+										<img src={imagePreview} height="100px" /> 					
 								</div>
 								<div class="row justify-content-center">
+								<button type="submit" class="btn-block btn-primary back-btn" onClick={(e)=>{history.push('/list')}}>Back</button>
 								{ props?.location?.state?.update === 'true' ?	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleUpdate}> Update Now</button> </div>
 				         :	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleSubmit}>Create Now</button> </div>}
 								</div>
@@ -192,7 +190,9 @@ function CreateTemple(props) {
           </div>
         </div>
        </div>
+			 <CreateHistory update={true} TempleInfo={TempleInfo}/>
 			 {isMessage && <Alert className='success-msg' variant={messageType}>{message}</Alert> }
+			 {props?.location?.state === 'true' ? <CreateHistory TempleInfo={TempleInfo}/> : ""} 
 		</div>
 	);
 }

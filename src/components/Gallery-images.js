@@ -1,28 +1,26 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './galleryImage.css';
 import { Modal } from 'react-bootstrap';
 import image from '../assets/Surya_mandhir.jpg'
-import image1 from '../assets/gallery-image/gallery-01.png'
-import image2 from '../assets/gallery-image/gallery2.jpg'
-import image3 from '../assets/gallery-image/gallery1.jpg'
-import image4 from '../assets/gallery-image/gallery-04.png'
-import image5 from '../assets/gallery-image/gallery-05.png'
-import image6 from '../assets/gallery-image/gallery3.jpg'
-import image7 from '../assets/gallery-image/gallery-02.png'
-import image8 from '../assets/gallery-image/gallery-08.png'
-import image9 from '../assets/gallery-image/gallery-09.png'
-
+import { getTempleImage}  from "../api/allApi";
 
 export const GalleryImages = () => {
 
   const [show, setShow] = useState(false);
+  const [image, setImage] = useState([])
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-   
-   
+  
+  useEffect(() => {
+    const res = getTempleImage()
+			res.then((result) => {
+				setImage(result.data)
+			})
+	},[])
+   console.log('image...',image);
   function handleClick() {
-      window.location.href = "/home";
+      window.location.href = "/khajrana";
     }
  
   return (
@@ -45,67 +43,22 @@ export const GalleryImages = () => {
         <div class="gallery-area section-space--pb_120 section-space--pt_90">
             <div class="container">
               <div class="row">
-                 <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery-wrap" onClick={handleShow}>  
-                         <img src={image} class="img-fluid " alt="Gallery Image"  />
-                         <Modal show={show} onHide={handleClose} >
-                            <img src={image} className="justify-content-center image-show" /> 
-                            </Modal> 
-                        </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery-wrap" onClick={handleShow} >
-                            <img src={image1} class="img-fluid " alt="Gallery Image"  />
-                           
-                        </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
+                {image?.photo_video_gallerys?.map((row)=>{
+                  return(
+                  <>
+                    { row.gallery_photo!= null &&
+                      <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-gallery-wrap">
-                           <img src={image5} class="img-fluid " alt="Gallery Image" onClick={handleShow}  />
-                            
+                          <img src={row?.gallery_photo} class="img-fluid gallery-img" alt="Gallery Image"  />     
                         </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery-wrap">
-                          <img src={image4} class="img-fluid " alt="Gallery Image" onClick={handleShow} />
-                            
-                        </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery-wrap">
-                          <img src={image7} class="img-fluid " alt="Gallery Image" onClick={handleShow}  />
-                        </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery-wrap">
-                          <img src={image} class="img-fluid " alt="Gallery Image" onClick={handleShow}  />
-                        </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery-wrap">
-                         <img src={image1} class="img-fluid " alt="Gallery Image" onClick={handleShow} />
-                            
-                        </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery-wrap">
-                          <img src={image5} class="img-fluid " alt="Gallery Image" onClick={handleShow}  />
-                            
-                        </div>
-                  </div>
-                  <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-gallery-wrap">
-                            <img src={image4} class="img-fluid " alt="Gallery Image"   onClick={handleShow}  />
-                            
-                        </div>
-                  </div>
+                      </div>
+                    }
+                  </>)
+                })}
               </div>
             </div>
         </div>
       </div> 
-       <Modal show={show} onHide={handleClose} >
-          <img src={image} className="justify-content-center image-show" /> 
-        </Modal> 
     </div>
   )
 }

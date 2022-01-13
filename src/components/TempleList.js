@@ -6,8 +6,6 @@ import Alert from 'react-bootstrap/Alert'
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
 import CreateIcon from '@material-ui/icons/Create';
-import Dropdown from 'react-bootstrap/Dropdown'
-import Event1 from '../assets/events/event-01.png';
 
 function TempleList() {
   let history = useHistory();
@@ -17,18 +15,22 @@ function TempleList() {
   const [messageType, setmessageType] = useState("success")
 
   useEffect(() => {
-    const res = getTempleInfo()
+    const res = getTempleInfo('Khajrana')
 			res.then((result) => {
 				setTempleInfo(result.data)
 			})
 	},[])
   
   function handleClick() {
-    window.location.href = "/home";
+    window.location.href = "/khajrana";
   }
 
-  function handleUpdate(templeInfo) {
-    history.push({ pathname: '/create',state: { update: 'true', templeInfo:templeInfo }});
+  function handleUpdate(temple_list) {
+    history.push({ pathname: '/create',state: { update: 'true', templeInfo:temple_list }});
+  }
+
+  function handleHistory(temple_list) {
+    history.push({ pathname: '/create-history',state: { update: 'true', templeInfo:temple_list }});
   }
 
   function handleDelete(temple_list){
@@ -69,7 +71,7 @@ function TempleList() {
                 <div class="col-lg-4 col-md-6">
                 <div class="single-event-wrap mt-40">
                   <div class="event-image">
-                    <a><img src={row?.logo} class="img-fluid" alt="Event Image"/></a>
+                    <a><img src={row?.logo} class="img-fluid temple-img" alt="Event Image"/></a>
                   </div>
                   <div class="event-content">
                     <div class="content-title">
@@ -80,7 +82,7 @@ function TempleList() {
                         <div class="event-date temple-time"><span>@ {row?.start_time?.substr(11, 5)} AM to {row?.end_time?.substr(11, 5)} PM </span></div>
                     </div>
                     <div class="ticket-button-box mt-20">
-                        <a href="#" class="btn ticket-btn">History</a>
+                        <a class="btn ticket-btn" onClick={(e)=>handleHistory(row)} >History</a>
                         <IconButton aria-label="delete" className='createIcon ticket-btn' onClick={(e)=>handleUpdate(temple_list)}>
                           <CreateIcon />
                         </IconButton>
@@ -96,50 +98,7 @@ function TempleList() {
             </div>
           </div>
         </div>
-      </div> 
-      {/* <Table striped hover className='templetable mt-3'>
-        <thead>
-          <tr>
-            <th>Temple Name</th>
-            <th></th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {templeInfo?.temples?.map((row) => { 
-            var temple_list = row;
-              return(
-                <>
-                  <tr>
-                    <td className='text-center'>{temple_list.temple_name}</td>
-                    <td> 
-                      <Dropdown>
-                        <Dropdown.Toggle id="dropdown-basic">
-                          Temple Details
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                          <Dropdown.Item onClick={()=>history.push({ pathname: '/create-history',state: {templeInfo:temple_list }})}>History</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Worship</Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">Time Slots</Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">Offline city center</Dropdown.Item>
-                        </Dropdown.Menu>
-                      </Dropdown>
-                    </td>
-                    <td>
-                      <IconButton aria-label="delete" className='createIcon' onClick={(e)=>handleUpdate(temple_list)}>
-                        <CreateIcon />
-                      </IconButton>
-                      <IconButton aria-label="delete" className='createIcon' onClick={(e)=>handleDelete(temple_list)}>
-                        <DeleteIcon />
-                      </IconButton>
-                    </td>
-                  </tr>
-                </>  
-              ) 
-          })}
-        </tbody>
-      </Table> */}
+      </div>  
     </div>
   );
 }

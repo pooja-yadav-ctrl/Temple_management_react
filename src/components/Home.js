@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import './home.css';
 import Hindu1  from '../assets/hindu-01.png'
 import Hindu2  from '../assets/hindu-02.png'
@@ -8,8 +8,22 @@ import Taiabout from '../assets/tai-about.png'
 import HinduActivity1  from '../assets/hindu-activities-01.png'
 import HinduActivity2  from '../assets/hindu-activities-02.png'
 import HinduActivity3  from '../assets/hindu-activities-03.png'
+import { getTemple}  from "../api/allApi";
 
-export const Home = () => {
+export const Home = (props) => {
+  const [templeInfo, setTempleInfo]= useState([])
+  const [image, setImage] = useState([])
+  var starttime = new Date(templeInfo?.start_time) 
+  var endtime = new Date(templeInfo?.end_time)
+
+  useEffect(() => {
+    const res = getTemple("khajrana")
+			res.then((result) => {
+        setImage(result.data.image_url)
+				setTempleInfo(result.data.details)
+			})
+	},[])
+    console.log('image',image);
    function handleEvents(){
       window.location.href = "/events"
     }
@@ -86,16 +100,17 @@ export const Home = () => {
                 <div class="row no-gutters align-items-center">
                     <div class="col-lg-6 pr-lg-5">
                         <div class="about-tai-image">
-                            <img src={Taiabout} class="img-fluid" alt="Tai Images"/>
+                            <img src={image} class="img-fluid" alt="Tai Images"/>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="about-tai-content col-06__right tablet-mt__30 small-mt__30">
                             <div class="section-title-wrap">
-                                <h3 class="section-title left-style">Taj Temple</h3>
+                                <h3 class="section-title left-style">{templeInfo.temple_name}</h3>
                             </div>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
+                            <p>{templeInfo.description}</p>
+                            <p>Open Time: -  {starttime.toLocaleTimeString()}</p>
+                            <p>Close Time:- {endtime.toLocaleTimeString()}</p>
                         </div>
 
                     </div>
@@ -119,7 +134,7 @@ export const Home = () => {
                                 <img src={HinduActivity1} class="img-fluid" alt=""/>
                             </a>
                             <div class="activities-content text-center">
-                                <div class="widget-metadata"><span>South Temple</span></div>
+                                {/* <div class="widget-metadata"><span>South Temple</span></div> */}
                                 <a href="#">
                                     <h4 class="activities-title">Spiritual Service</h4>
                                 </a>
@@ -132,7 +147,7 @@ export const Home = () => {
                                 <img src={HinduActivity2} class="img-fluid" alt=""/>
                             </a>
                             <div class="activities-content text-center">
-                                <div class="widget-metadata"><span>South Temple</span></div>
+                                {/* <div class="widget-metadata"><span>South Temple</span></div> */}
                                 <a href="#">
                                     <h4 class="activities-title">Relief Service</h4>
                                 </a>
@@ -145,7 +160,7 @@ export const Home = () => {
                                 <img src={HinduActivity3} class="img-fluid" alt=""/>
                             </a>
                             <div class="activities-content text-center">
-                                <div class="widget-metadata"><span>South Temple</span></div>
+                                {/* <div class="widget-metadata"><span>South Temple</span></div> */}
                                 <a href="#">
                                     <h4 class="activities-title">Medical Service</h4>
                                 </a>
