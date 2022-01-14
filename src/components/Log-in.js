@@ -58,7 +58,7 @@ function LogIn(props) {
             setmessageType("success")
             setmessage("you have successfully logged in")
             localStorage.setItem('id', result?.data?.id);
-            localStorage.setItem('msg', result?.data?.authentication_token);
+            localStorage.setItem('role', result?.data?.role);
             setTimeout(() => {
               setIsMessage(false)
               window.location.href = `/khajrana`

@@ -13,6 +13,7 @@ export const GalleryVideos = () => {
           setImage(result.data)
         })
     },[])
+    console.log('image',image);
   return (
     <div>
       <div class="breadcrumb-area--bg-two bg-overlay-black-4">
@@ -33,22 +34,22 @@ export const GalleryVideos = () => {
         <div class="gallery-area section-space--pb_120 section-space--pt_90">
             <div class="container">
               <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-6">
               {image?.photo_video_gallerys?.map((row)=>{
                   return(
                   <>
-                    <div class="single-gallery-wrap">
                       {row?.gallery_video!=null && 
-                        <a href={row?.gallery_video} class="img-popup">
-                        <video width="100%" height="100%" preload="auto">
-                            <source src={row?.gallery_video} type="video" class="img-fluid " />
-                            Your browser does not support HTML5 video.
-                        </video>
-                          </a>
-                      }  
-                    </div>     
+                      <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-gallery-wrap">
+                          <a href={row?.gallery_video}  class="img-popup">
+                          <video width="100%" height="100%" preload="auto">
+                              <source src={row?.gallery_video} type="video/mp4" class="img-fluid " />
+                              Your browser does not support HTML5 video.
+                          </video>
+                            </a>
+                        </div> 
+                      </div>
+                      }    
                   </>)})}
-                  </div>
               </div>
             </div>
         </div>

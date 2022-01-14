@@ -12,7 +12,7 @@ import { getTempleInfo, deleteEvent, updateEvents }  from "../api/allApi";
 import { Modal } from 'react-bootstrap';
 
 export const Events = () => {
-  const authentication_token = localStorage.getItem('msg');
+
   let history = useHistory();
   const [templeInfo, setTempleInfo]= useState([])
   const [isMessage, setIsMessage] = useState(false)
@@ -22,6 +22,7 @@ export const Events = () => {
   const [show, setShow] = useState(false);
   const [eventDetails,  setEventDetails] = useState([]);
   const temple_id = localStorage.getItem('temple_id')
+  const role = localStorage.getItem('role')
   function handleClick() {
       window.location.href = "/khajranae";
   }
@@ -31,7 +32,7 @@ export const Events = () => {
     setTempleInfo(row)
     setShow(true);
   }
- console.log('vbbbbbbbbbn',templeInfo);
+ 
   const handleChange = (event,key) => {
 		event.preventDefault();
 		setEventDetails({...eventDetails, event: {...eventDetails.event, [key]: event.target.value, temple_id: temple_id}}) 
@@ -110,7 +111,7 @@ export const Events = () => {
                       </div>
                       <div class="ticket-button-box mt-20">
                           <a href="#" class="btn ticket-btn">Buy Ticket</a>
-                          { authentication_token === "bKwD3Nkur5nyTFrNzD7_" && 
+                          { role === "admin" && 
                             <>
                               <IconButton aria-label="delete" className='createIcon' onClick={(e)=>handleShow(row)}>
                                 <CreateIcon />

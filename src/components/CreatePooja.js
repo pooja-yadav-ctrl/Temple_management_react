@@ -13,7 +13,7 @@ function CreatePooja(props) {
   const [messageType, setmessageType] = useState("success")
   const TempleInfo = props?.location?.state?.poojaInfo
 	const temple_id = localStorage.getItem('temple_id')
-	console.log('props',TempleInfo.id );
+	
 	function handleClick() {
     window.location.href = "/khajrana";
   }
@@ -71,7 +71,7 @@ function CreatePooja(props) {
         <div class="row d-flex justify-content-center">
         	<div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
             <div class="card">
-							{props?.location.state.update === "true" ? <h5 class="text-center mb-4">Update Temple Pooja Time</h5>: <h5 class="text-center mb-4">Add Temple Pooja Time </h5>}
+							{props?.location?.state?.update === "true" ? <h5 class="text-center mb-4">Update Temple Pooja Time</h5>: <h5 class="text-center mb-4">Add Temple Pooja Time </h5>}
 							<form class="form-card">
 								<div class="row justify-content-between text-left">
 										<div class="form-group col-sm-6 flex-column d-flex"> 
@@ -106,7 +106,7 @@ function CreatePooja(props) {
                 </div>
 								<div class="row justify-content-center">
 									<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={(e)=>{history.push('/pooja')}}>Back</button></div>
-									{ props?.location.state.update === "true" ?	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleUpdate}> Update Now</button> </div>
+									{ props?.location?.state?.update === "true" ?	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleUpdate}> Update Now</button> </div>
 									:	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleSubmit}>Create Now</button> </div>}
 								</div>
 							</form>

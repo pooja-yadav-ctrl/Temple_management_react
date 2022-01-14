@@ -16,7 +16,7 @@ export default function Header(props) {
   const [isMessage, setIsMessage] = useState(false)
   const [message, setmessage] = useState(null)
   const [messageType, setmessageType] = useState("success")
-  const authentication_token = localStorage.getItem('msg');
+  const role = localStorage.getItem('role')
   const TempleInfo = props?.location?.state?.templeInfo
   const temple_id = localStorage.getItem('temple_id')
   console.log("props",props);
@@ -94,7 +94,7 @@ export default function Header(props) {
         setmessage("You have successfully logged out")
         setTimeout(() => {
           setIsMessage(false)
-          localStorage.removeItem('msg')
+          localStorage.removeItem('role')
           window.location.href = '/'
         }, 2000);
       })
@@ -122,7 +122,7 @@ export default function Header(props) {
                         <ul class="submenu">
                           <li class="active"><a onClick={handleImage}><span>Images</span></a></li>
                           <li><a onClick={handleVideo} ><span>Videos</span></a></li>
-                          { authentication_token === "bKwD3Nkur5nyTFrNzD7_" && 
+                          { role === "admin" && 
                           <>
                             <li><a onClick={handleAddImage} ><span>Add Image </span></a></li>
                             <li><a onClick={handleAddVideo} ><span>Add Video</span></a></li>
@@ -131,7 +131,7 @@ export default function Header(props) {
                       </li>
                       <li class="has-children has-children--multilevel-submenu ">
                         <a onClick={handlePooja}><span>Pooja</span></a>
-                        { authentication_token === "bKwD3Nkur5nyTFrNzD7_" && 
+                        { role === "admin" && 
                           <ul class="submenu">
                             <li class="active"><a onClick={handleCreatePooja}><span>Create</span></a></li>
                           </ul>
@@ -142,7 +142,7 @@ export default function Header(props) {
                       </li>
                       <li class="has-children has-children--multilevel-submenu">
                         <a onClick={handleEvents} ><span>Events</span></a>
-                        { authentication_token === "bKwD3Nkur5nyTFrNzD7_" && 
+                        { role === "admin" && 
                         <ul class="submenu">
                           <li class="active"><a onClick={handleShow}><span>Add Events</span></a></li>
                        </ul>}
@@ -154,7 +154,7 @@ export default function Header(props) {
                           <li><a onClick={handleOnlineDonation}><span>Online Donation</span></a></li>
                         </ul>
                       </li>
-                      { authentication_token === "bKwD3Nkur5nyTFrNzD7_" && 
+                      { role === "admin" && 
                         <>
                           <li class="has-children has-children--multilevel-submenu">
                             <a ><span>Temple</span></a>

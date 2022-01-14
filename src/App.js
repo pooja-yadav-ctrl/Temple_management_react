@@ -21,7 +21,7 @@ import AddVedio from './components/AddVedio';
 
 function App() {
   const [logIn, setLogIn] = useState('false')
-  const authentication_token = localStorage.getItem('msg');
+  const role = localStorage.getItem('role');
   // const pathname = window.location.pathname
   // console.log('P.......athname',pathname);
   
@@ -47,7 +47,7 @@ function App() {
             <Route path="/online-donation" component={Online}/> 
             <Route path="/history" component={TempleHistory}/>
             <Route path="/pooja" component={TemplePooja}/>
-           {authentication_token === "bKwD3Nkur5nyTFrNzD7_" &&  
+           {role === "admin" &&  
             <>
               <Route path="/create" component={CreateTemple}/>
               <Route path="/create-history" component={CreateHistory}/>
