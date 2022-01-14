@@ -18,6 +18,7 @@ export default function Header(props) {
   const [messageType, setmessageType] = useState("success")
   const authentication_token = localStorage.getItem('msg');
   const TempleInfo = props?.location?.state?.templeInfo
+  const temple_id = localStorage.getItem('temple_id')
   console.log("props",props);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -29,7 +30,7 @@ export default function Header(props) {
   console.log('update',update);
   const handleChange = (event,key) => {
 		event.preventDefault();
-		setEventDetails({...eventDetails, event: {...eventDetails.event, [key]: event.target.value, temple_id: 230}}) 
+		setEventDetails({...eventDetails, event: {...eventDetails.event, [key]: event.target.value, temple_id: temple_id}}) 
   }	
   
   const handleSubmit = (e) => {

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { createTemplePooja, updateTempleHistory }  from "../api/allApi";
+import { createTemplePooja, updateTemplePooja }  from "../api/allApi";
 import Alert from 'react-bootstrap/Alert';
 import { useHistory } from "react-router-dom";
 
@@ -11,15 +11,16 @@ function CreatePooja(props) {
   const [isMessage, setIsMessage] = useState(false)
   const [message, setmessage] = useState(null)
   const [messageType, setmessageType] = useState("success")
-  const TempleInfo = props?.location?.state?.templeInfo
-
+  const TempleInfo = props?.location?.state?.poojaInfo
+	const temple_id = localStorage.getItem('temple_id')
+	console.log('props',TempleInfo.id );
 	function handleClick() {
     window.location.href = "/khajrana";
   }
 
   const handleChange = (event,key) => {
 		event.preventDefault();
-		setTemple({...temple, worship: {...temple.worship, [key]: event.target.value, temple_id: 230}}) 
+		setTemple({...temple, worship: {...temple.worship, [key]: event.target.value, temple_id: temple_id}}) 
   }	
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -31,22 +32,22 @@ function CreatePooja(props) {
 			setmessage(result?.data?.message)
 			setTimeout(() => {
 				setIsMessage(false)
-				window.location.reload()
+				window.location.href = '/pooja'
 			}, 2000);
 		})
 	} 
 
   const handleUpdate = async(e) => {
 		e.preventDefault();
-		const res = updateTempleHistory(temple, props?.TempleInfo?.id)
+		const res = updateTemplePooja(TempleInfo?.id,temple)
 		res.then((result) => {
 			console.log('res',res);
 			setIsMessage(true)
 			setmessageType("success")	
-			setmessage(result?.data?.message)
+			setmessage("Pooja updated successfully")
 			setTimeout(() => {
 				setIsMessage(false)
-				// window.location.reload()
+				window.location.href = '/pooja'
 			}, 2000);
 		})
 	} 
@@ -65,11 +66,12 @@ function CreatePooja(props) {
           </div>
         </div>
       </div>
+			{isMessage && <Alert className='alert-msg' variant={messageType}>{message}</Alert> }
       <div class="container-fluid px-1 py-5 mx-auto">
         <div class="row d-flex justify-content-center">
         	<div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
             <div class="card">
-							{props?.update === true ? <h5 class="text-center mb-4">Update Temple Pooja Time</h5>: <h5 class="text-center mb-4">Add Temple Pooja Time </h5>}
+							{props?.location.state.update === "true" ? <h5 class="text-center mb-4">Update Temple Pooja Time</h5>: <h5 class="text-center mb-4">Add Temple Pooja Time </h5>}
 							<form class="form-card">
 								<div class="row justify-content-between text-left">
 										<div class="form-group col-sm-6 flex-column d-flex"> 
@@ -103,8 +105,8 @@ function CreatePooja(props) {
                   </div>
                 </div>
 								<div class="row justify-content-center">
-									<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={(e)=>{history.push('/list')}}>Back</button></div>
-									{ props?.update === true ?	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleUpdate}> Update Now</button> </div>
+									<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={(e)=>{history.push('/pooja')}}>Back</button></div>
+									{ props?.location.state.update === "true" ?	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleUpdate}> Update Now</button> </div>
 									:	<div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary" onClick={handleSubmit}>Create Now</button> </div>}
 								</div>
 							</form>
@@ -112,7 +114,6 @@ function CreatePooja(props) {
           </div>
         </div>
        </div>
-			 {isMessage && <Alert className='success-msg' variant={messageType}>{message}</Alert> }
     </div>
   );
 }

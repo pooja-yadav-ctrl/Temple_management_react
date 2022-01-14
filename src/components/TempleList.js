@@ -88,7 +88,7 @@ function TempleList() {
                         </IconButton>
                         <IconButton aria-label="delete" className='createIcon' onClick={(e)=>handleDelete(temple_list)}>
                           <DeleteIcon />
-                      </IconButton>
+                        </IconButton>
                     </div>
                   </div>
                 </div>

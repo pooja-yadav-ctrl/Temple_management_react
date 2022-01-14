@@ -21,7 +21,7 @@ export const Events = () => {
   const [eventInfo, setEventInfo] = useState([]);
   const [show, setShow] = useState(false);
   const [eventDetails,  setEventDetails] = useState([]);
-
+  const temple_id = localStorage.getItem('temple_id')
   function handleClick() {
       window.location.href = "/khajranae";
   }
@@ -34,7 +34,7 @@ export const Events = () => {
  console.log('vbbbbbbbbbn',templeInfo);
   const handleChange = (event,key) => {
 		event.preventDefault();
-		setEventDetails({...eventDetails, event: {...eventDetails.event, [key]: event.target.value, temple_id: 230}}) 
+		setEventDetails({...eventDetails, event: {...eventDetails.event, [key]: event.target.value, temple_id: temple_id}}) 
   }	
   const handleUpdate = async(e) => {
 		e.preventDefault();

@@ -15,6 +15,7 @@ export const Home = (props) => {
   const [image, setImage] = useState([])
   var starttime = new Date(templeInfo?.start_time) 
   var endtime = new Date(templeInfo?.end_time)
+    localStorage.setItem('temple_id',templeInfo?.id)
 
   useEffect(() => {
     const res = getTemple("khajrana")

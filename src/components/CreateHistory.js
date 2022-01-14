@@ -12,14 +12,14 @@ function CreateHistory(props) {
   const [message, setmessage] = useState(null)
   const [messageType, setmessageType] = useState("success")
   const TempleInfo = props?.location?.state?.templeInfo
-
+	const temple_id = localStorage.getItem('temple_id')
 	function handleClick() {
     window.location.href = "/khajrana";
   }
 
   const handleChange = (event,key) => {
 		event.preventDefault();
-		setTemple({...temple, temple_history_detail: {...temple.temple_history_detail, [key]: event.target.value, temple_id: 230}}) 
+		setTemple({...temple, temple_history_detail: {...temple.temple_history_detail, [key]: event.target.value, temple_id: temple_id}}) 
   }	
 	const handleSubmit = (e) => {
 		console.log('temple',temple);

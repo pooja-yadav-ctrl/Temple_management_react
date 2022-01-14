@@ -9,7 +9,7 @@ function AddVedio(props) {
   const [message, setmessage] = useState(null)
   const [messageType, setmessageType] = useState("success")
   const [video, setVideo] = useState()
-
+  const temple_id = localStorage.getItem('temple_id')
   function handleClick() {
     window.location.href = "/khajrana";
   }
@@ -39,7 +39,7 @@ function AddVedio(props) {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append('gallery[temple_video]',video)
-    formData.append('gallery[temple_id]',230)
+    formData.append('gallery[temple_id]',temple_id)
 
 		const res = addVedio(formData)	
 		res.then((result) => {

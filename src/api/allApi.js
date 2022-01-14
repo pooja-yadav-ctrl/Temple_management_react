@@ -54,6 +54,9 @@ export const createTemplePooja = (params) => {
 export const getTemplePoojaList = (id) => {
     return api.get(`/worships`)
 }
+export const deletePooja = (id) => {
+    return api.delete(`/worships/`+id)
+}
 export const deleteEvent = (id) => {
     return api.delete(`/events/`+id)
 }
@@ -66,3 +69,6 @@ export const addVedio = (params) => {
 export const getTempleImage = () => {
     return api.get(`/photo_video_galleries`)
 }
+export const updateTemplePooja = (id,params) => {
+    return api.patch(`/worships/`+id ,params)
+}   

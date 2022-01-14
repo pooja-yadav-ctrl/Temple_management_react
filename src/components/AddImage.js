@@ -10,7 +10,7 @@ function AddImage(props) {
   const [messageType, setmessageType] = useState("success")
 	const [image, setImage] = useState()
   const [imagePreview, setImagePreview] = useState()
-
+  const temple_id = localStorage.getItem('temple_id')
   function handleClick() {
     window.location.href = "/khajrana";
   }
@@ -40,7 +40,7 @@ function AddImage(props) {
 		e.preventDefault();
 		const formData = new FormData();
 		formData.append('gallery[temple_photo]', image);
-    formData.append('gallery[temple_id]',230)
+    formData.append('gallery[temple_id]',temple_id)
 
 		const res = addImage(formData)	
 		res.then((result) => {
