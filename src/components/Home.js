@@ -101,7 +101,7 @@ export const Home = (props) => {
                 <div class="row no-gutters align-items-center">
                     <div class="col-lg-6 pr-lg-5">
                         <div class="about-tai-image">
-                            <img src={image} class="img-fluid" alt="Tai Images"/>
+                            <img src={image} class="img-fluid home-img" alt="Tai Images"/>
                         </div>
                     </div>
                     <div class="col-lg-6">

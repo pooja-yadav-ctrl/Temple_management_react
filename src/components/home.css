@@ -14,7 +14,9 @@
     height: 720px;
 }
 .hindu-hero-bg {
-    background: url(../assets/background-image.png);
+    background: url(../assets/DSC_0038.JPG);
+    background-size: cover;
+    /* background-position: center; */
 }
 .bg-overlay-black::before {
     position: absolute;
@@ -47,7 +49,7 @@ a, button {
     cursor: pointer;
 }
 .text-white {
-    color: #fff !important;
+    color: #fffefe !important;
     font-size: 70px;
     font-family: inherit;
     line-height: 82px;
@@ -198,4 +200,11 @@ p {
 }
 .temple-img{
     height: 250px;
+}
+.img-fluid {
+    height: 300px;
+    width: 100%;
+}
+.home-img{
+    height: 600px;
 }

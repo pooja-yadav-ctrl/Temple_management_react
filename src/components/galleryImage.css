@@ -10,7 +10,8 @@
     position: relative !important;
 }
 .breadcrumb-area--bg-two {
-    background-image: url(../assets/gallery-image/breadcrumb-03.png) !important;
+    background-image: url(../assets/DSC_0062.JPG) !important;
+    /* background-position: 40% !important; */
 }
 .bg-overlay-black-4::before {
     position: absolute;
