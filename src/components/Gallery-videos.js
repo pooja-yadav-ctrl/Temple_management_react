@@ -37,12 +37,12 @@ export const GalleryVideos = () => {
               {image?.photo_video_gallerys?.map((row)=>{
                   return(
                   <>
-                      {row?.gallery_video!=null && 
+                      {row?.video_url!=null && 
                       <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-gallery-wrap">
-                          <a href={row?.gallery_video}  class="img-popup">
+                          <a href={row?.video_url}  class="img-popup">
                           <video width="100%" height="100%" preload="auto">
-                              <source src={row?.gallery_video} type="video/mp4" class="img-fluid " />
+                              <source src={row?.video_url} type="video/mp4" class="img-fluid " />
                               Your browser does not support HTML5 video.
                           </video>
                             </a>

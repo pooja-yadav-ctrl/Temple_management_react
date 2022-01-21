@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { getTempleHistory}  from "../api/allApi";
-import image from '../assets/khajrana3.jpeg'
-import image2 from '../assets/khajrana7.jpeg'
+import image from '../assets/DSC_0015.JPG'
+import image2 from '../assets/DSC_0011.JPG'
 
 function TempleHistory(props) {
   const [history, setHistory] = useState([])
@@ -36,10 +36,10 @@ function TempleHistory(props) {
         <div class="row d-flex justify-content-center">
           <div class="col-xl-7 col-lg-8 col-md-9 col-11">
             <div class="col span_2_of_8 history-image">
-              <img src={image}/>
+              <img className='img-history' src={image}/>
               <br/>
               <br/>
-              <img src={image2}/>
+              <img className='img-history' src={image2}/>
             </div>
             <div class="card history-card">
               <h6 className='red'>ABOUT THE TEMPLE</h6>

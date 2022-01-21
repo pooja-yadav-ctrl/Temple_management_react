@@ -24,18 +24,23 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.1);
     content: '';
     border-radius: 5px;
 }
+/* .hero-content{
+    position: absolute !important;
+} */
 .hero-btn {
-    border: 2px solid #ddd;
-    padding: 5px 40px;
-    background: #fff;
-    color: #333;
+    border: 2px solid #a68a8a !important;
+    padding: 5px 22px;
+    background: #c08d74;
+    color: black !important;
     border-radius: 25px;
 }
-
+.hero-btn:hover{
+    background: #a68a8a !important;
+}
 a, button, img, input, span {
     -webkit-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
     -o-transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -49,11 +54,12 @@ a, button {
     cursor: pointer;
 }
 .text-white {
-    color: #fffefe !important;
-    font-size: 70px;
-    font-family: inherit;
-    line-height: 82px;
+    color: #a68a8a !important;
+    font-size: 50px;
+    /* font-family: inherit; */
+    /* line-height: 82px; */
     font-weight: 300;
+    margin-top: -308px;
 }
 .hero-boder-top {
     position: relative;
@@ -207,4 +213,34 @@ p {
 }
 .home-img{
     height: 600px;
+}
+.copyright {
+  text-align: center;
+}
+.mt-30{
+  margin-top: 20px !important;
+}
+.pooja-card{
+  padding: 12px;
+  width: 90%;
+  height: 300px;
+  box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.2)
+}
+.pooja-name{
+  color: #ff5200;
+}
+.ticket-box {
+  float: right;
+}
+.pooja-content{
+  font-weight: 100 !important;
+  color: #cf6363 !important;
+ 
+}
+.pooja-content .pooja-time span{
+  margin-right: 20px !important;
+}
+.img-history{
+  height: 159px;
+  width: 25%;
 }

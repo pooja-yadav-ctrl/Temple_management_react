@@ -6,8 +6,10 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import ArrowUpwardOutlinedIcon from '@material-ui/icons/ArrowUpwardOutlined';
+import { useHistory } from "react-router-dom";
 
 export const Footer = () => {
+	let history = useHistory();
   return (
     <div>
         <footer class="footer-area bg-footer">
@@ -36,10 +38,12 @@ export const Footer = () => {
                             </div>
                             <div class="footer-contents">
                                 <ul>
-                                    <li><a >Home</a></li>
-                                    <li><a >Gallery</a></li>
-                                    <li><a >Event</a></li>
-                                    <li><a >Donate</a></li>
+                                    <li onClick={()=>history.push('/khajrana')}><a >Home</a></li>
+                                    <li onClick={()=>history.push('gallery-image')}><a >Gallery</a></li>
+																		<li onClick={()=>history.push('/pooja')}><a >Pooja</a></li>
+																		<li onClick={()=>history.push('/history')}><a >History</a></li>
+                                    <li onClick={()=>history.push('/events')}><a >Event</a></li>
+                                    <li onClick={()=>history.push('/online-donation')}><a >Donate</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -52,7 +56,7 @@ export const Footer = () => {
                             <div class="footer-contents">
                                 <ul>
                                     <li>Start Time: 9:00 am</li>
-                                    <li>End Time: 11.00 pm</li>
+                                    <li>End Time: 10:00 pm</li>
                                     <li>Aarti Time: 9:00 am</li>
                                     <li>Aarti Time: 7:30 pm</li>
                                     
@@ -63,19 +67,13 @@ export const Footer = () => {
                       <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="widget-footer mt-30">
                             <div class="footer-title">
-                                <h6>Related Links</h6>
-                            </div>
-                            <div class="footer-logo mb-15">
-                                <a href="index.html"><img src="assets/images/logo/footer-logo.png" alt=""/></a>
+                                <h6>Contact Us</h6>
                             </div>
                             <div class="footer-contents">
-                                <p> Subscribe to our Newsletter & stay update. </p>
-                                <div class="newsletter-box">
-                                    <input type="text" placeholder="Enter your mail address"/>
-                                    <button>
-                                      <TelegramIcon/>
-                                    </button>
-                                </div>
+																<ul>
+                                    <li>Shri Sanjay Madhukar Jori	: 910283213299</li>
+                                    <li>Shri Sanjay Madhukar Jori	: 910283213299</li>        
+                                </ul>
                                     <ul class="footer-social-share mt-3 ">
                                     <li ><a href="#"><FacebookIcon className="footer-icon" /></a></li>
                                     <li><a href="#"><TwitterIcon className="footer-icon"/></a></li>
@@ -90,6 +88,11 @@ export const Footer = () => {
             </div>
          </div>
         </footer>
+				<div class="container">
+					<div class="copyright">
+						&copy; Copyright <strong><span>webkorps</span></strong>. All Rights Reserved
+					</div>   
+   			 </div>
     </div>        
   )
 }

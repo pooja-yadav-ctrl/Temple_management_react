@@ -24,7 +24,7 @@ export const Home = (props) => {
 				setTempleInfo(result.data.details)
 			})
 	},[])
-    console.log('image',image);
+  
    function handleEvents(){
       window.location.href = "/events"
     }
@@ -37,9 +37,9 @@ export const Home = (props) => {
                         <div class="hero-content text-center">
                             <h1 class="text-white">Amazing Bridge Between<br/>
                          The Divine & Mankind</h1>
-                                <div class="ht-btn-area hero-boder-top">
-                                    <a onClick={handleEvents} class="hero-btn">Explore Events</a>
-                                </div>
+                                {/* <div class="ht-btn-area hero-boder-top"> */}
+                                    <a onClick={handleEvents} class="hero-btn mt-2 ticket-btn">Explore Events</a>
+                                {/* </div> */}
                         </div>
                     </div>
                 </div>
@@ -96,28 +96,28 @@ export const Home = (props) => {
             </div>
       </div>
      
-        <div class="tai-about-area section-space--ptb_120" >
-            <div class="container-fluid pl-0 pr-0">
-                <div class="row no-gutters align-items-center">
-                    <div class="col-lg-6 pr-lg-5">
-                        <div class="about-tai-image">
-                            <img src={image} class="img-fluid home-img" alt="Tai Images"/>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-tai-content col-06__right tablet-mt__30 small-mt__30">
-                            <div class="section-title-wrap">
-                                <h3 class="section-title left-style">{templeInfo.temple_name}</h3>
-                            </div>
-                            <p>{templeInfo.description}</p>
-                            <p>Open Time: -  {starttime.toLocaleTimeString()}</p>
-                            <p>Close Time:- {endtime.toLocaleTimeString()}</p>
-                        </div>
+      <div class="tai-about-area section-space--ptb_120" >
+          <div class="container-fluid pl-0 pr-0">
+              <div class="row no-gutters align-items-center">
+                  <div class="col-lg-6 pr-lg-5">
+                      <div class="about-tai-image">
+                          <img src={image} class="img-fluid home-img" alt="Tai Images"/>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="about-tai-content col-06__right tablet-mt__30 small-mt__30">
+                          <div class="section-title-wrap">
+                              <h3 class="section-title left-style">{templeInfo.temple_name}</h3>
+                          </div>
+                          <p>{templeInfo.description}</p>
+                          <p>Open Time: -  {starttime.toLocaleTimeString()}</p>
+                          <p>Close Time:- {endtime.toLocaleTimeString()}</p>
+                      </div>
 
-                    </div>
-                </div>
-            </div>
-        </div>
+                  </div>
+              </div>
+          </div>
+      </div>
      
       <div class="service-area section-space--pb_120">
             <div class="container">

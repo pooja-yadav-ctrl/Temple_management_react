@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import './galleryImage.css';
 import './event.css';
 import './home.css';
-import Event1 from '../assets/events/event-01.png';
+import Event1 from '../assets/events/DSC_0002.JPG';
 import { getEvents}  from "../api/allApi";
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
@@ -77,7 +77,7 @@ export const Events = () => {
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
-              <h3 class="breadcrumb-title text-white">Events</h3>
+              <h3 class="breadcrumb-title wt">Events</h3>
               <ul class="breadcrumb-list">
                   <li class="breadcrumb-item"><a onClick={handleClick}>Home</a></li>
                   <li class="breadcrumb-item active">Events</li>
