@@ -46,10 +46,10 @@ export const GalleryImages = () => {
                 {image?.photo_video_gallerys?.map((row)=>{
                   return(
                   <>
-                    { row.gallery_photo!= null &&
+                    { row.photo_url != null &&
                       <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-gallery-wrap">
-                          <img src={row?.gallery_photo} class="img-fluid gallery-img" alt="Gallery Image"  />     
+                          <img src={row?.photo_url} class="img-fluid gallery-img" alt="Gallery Image"  />     
                         </div>
                       </div>
                     }
