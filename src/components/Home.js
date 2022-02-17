@@ -20,7 +20,7 @@ export const Home = (props) => {
   useEffect(() => {
     const res = getTemple("khajrana")
 			res.then((result) => {
-        setImage(result.data.temple_image_url)
+        setImage(result.data.details.temple_image_url)
 				setTempleInfo(result.data.details)
 			})
 	},[])

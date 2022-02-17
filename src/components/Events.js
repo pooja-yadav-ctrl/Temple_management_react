@@ -52,7 +52,7 @@ export const Events = () => {
 	} 
 
   useEffect(() => {
-    const res = getEvents()
+    const res = getEvents("khajrana")
 			res.then((result) => {
 				setEventInfo(result.data)
 			})

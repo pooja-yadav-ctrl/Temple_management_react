@@ -10,7 +10,7 @@ function TempleHistory(props) {
     window.location.href = "/khajrana";
   }
     useEffect(() => {
-    const res = getTempleHistory(7)
+    const res = getTempleHistory("khajrana")
 			res.then((result) => {
 				setHistory(result.data)
 			})
