@@ -42,11 +42,11 @@ export const updateEvents = (id,params) => {
     console.log('id',id);
     return api.put(`/events/`+id, params)
 }
-export const getEvents = (id) => {
-    return api.get(`/events`)
+export const getEvents = (params) => {
+    return api.get(`/fetch_single_temple_events.json?temple_name=${params}`)
 }
-export const getTempleHistory = (id) => {
-    return api.get(`/temple_history_details/`+id)
+export const getTempleHistory = (params) => {
+    return api.get(`fetch_single_temple_history_detail.json?temple_name=${params}`)
 }
 export const createTemplePooja = (params) => {
     return api.post(`/worships`, params)
