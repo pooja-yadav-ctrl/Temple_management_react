@@ -23,8 +23,8 @@ export const Footer = () => {
                             </div>
                             <div class="footer-contents">
                                 <ul>
-                                    <li> Baba Ra Devra, Bhilatdev
-																		Tehsil- Seoni Malwa, Dist.- Hoshangabad, M.P. 461221</li>
+                                    <li>Baba Ra Devra, Bhilatdev,
+                                    Tehsil- Seoni Malwa, Dist. Hoshangabad, M.P. 461221</li>
                                 </ul>
                             </div>
                         </div>
