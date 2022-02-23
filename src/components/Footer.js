@@ -23,10 +23,8 @@ export const Footer = () => {
                             </div>
                             <div class="footer-contents">
                                 <ul>
-                                    <li><span>Temple 1: </span> 777/ed Ipum Road Venu
-                                        Demon Ipsum. 28400</li>
-                                    <li><span>Temple 2: </span> 577/ed Ipum Road Venu
-                                        Demon Ipsum. 15400</li>
+                                    <li> Baba Ra Devra, Bhilatdev
+																		Tehsil- Seoni Malwa, Dist.- Hoshangabad, M.P. 461221</li>
                                 </ul>
                             </div>
                         </div>
