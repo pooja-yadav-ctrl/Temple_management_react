@@ -7,10 +7,10 @@ function TempleHistory(props) {
   const [history, setHistory] = useState([])
   const TempleId = localStorage.getItem('id')
   function handleClick() {
-    window.location.href = "/khajrana";
+    window.location.href = "/babaradevra";
   }
     useEffect(() => {
-    const res = getTempleHistory("khajrana")
+    const res = getTempleHistory("babaradevra")
 			res.then((result) => {
 				setHistory(result.data)
 			})

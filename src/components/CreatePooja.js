@@ -15,7 +15,7 @@ function CreatePooja(props) {
 	const temple_id = localStorage.getItem('temple_id')
 	
 	function handleClick() {
-    window.location.href = "/khajrana";
+    window.location.href = "/babaradevra";
   }
 
   const handleChange = (event,key) => {

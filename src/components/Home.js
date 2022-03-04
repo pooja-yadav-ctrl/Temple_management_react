@@ -18,9 +18,9 @@ export const Home = (props) => {
     localStorage.setItem('temple_id',templeInfo?.id)
 
   useEffect(() => {
-    const res = getTemple("khajrana")
+    const res = getTemple("babaradevra")
 			res.then((result) => {
-        setImage(result.data.details.temple_image_url)
+        setImage(result.data.image_url)
 				setTempleInfo(result.data.details)
 			})
 	},[])
@@ -107,7 +107,7 @@ export const Home = (props) => {
                   <div class="col-lg-6">
                       <div class="about-tai-content col-06__right tablet-mt__30 small-mt__30">
                           <div class="section-title-wrap">
-                              <h3 class="section-title left-style">{templeInfo.temple_name}</h3>
+                              <h3 class="section-title left-style">{templeInfo?.temple_name?.toUpperCase()}</h3>
                           </div>
                           <p>{templeInfo.description}</p>
                           <p>Open Time: -  {starttime.toLocaleTimeString()}</p>

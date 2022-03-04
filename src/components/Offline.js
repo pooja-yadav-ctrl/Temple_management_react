@@ -3,7 +3,7 @@ import './galleryImage.css'
 
 export const Offline = () => {
     function handleClick() {
-      window.location.href = "/khajrana";
+      window.location.href = "/babaradevra";
     }
 
   return (

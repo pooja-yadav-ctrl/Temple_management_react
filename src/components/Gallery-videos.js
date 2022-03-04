@@ -5,7 +5,7 @@ import { getTempleImage}  from "../api/allApi";
 export const GalleryVideos = () => {
   const [image, setImage] = useState([])
    function handleClick() {
-      window.location.href = "/khajrana";
+      window.location.href = "/babaradevra";
     }
     useEffect(() => {
       const res = getTempleImage()

@@ -61,7 +61,7 @@ function LogIn(props) {
             localStorage.setItem('role', result?.data?.role);
             setTimeout(() => {
               setIsMessage(false)
-              window.location.href = `/khajrana`
+              window.location.href = `/babaradevra`
             }, 1500);
           }
         })

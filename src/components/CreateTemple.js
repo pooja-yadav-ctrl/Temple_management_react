@@ -21,7 +21,7 @@ function CreateTemple(props) {
 	const user_id = localStorage.getItem('id')
 
 	function handleClick() {
-			window.location.href = "/khajrana";
+			window.location.href = "/babaradevra";
 	}
 
 	const handleChange = async(event) => {

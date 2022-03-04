@@ -11,7 +11,7 @@ import Sbi from '../assets/offline-donation/sbi-pay.png'
 
 export const Online = () => {
   function handleClick() {
-      window.location.href = "/khajrana";
+      window.location.href = "/babaradevra";
     }
   function handleSubmit(){
     //  e.preventDefault();
