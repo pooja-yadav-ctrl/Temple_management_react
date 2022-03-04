@@ -15,14 +15,14 @@ function TempleList() {
   const [messageType, setmessageType] = useState("success")
 
   useEffect(() => {
-    const res = getTempleInfo('Khajrana')
+    const res = getTempleInfo('babaradevra')
 			res.then((result) => {
 				setTempleInfo(result.data)
 			})
 	},[])
   
   function handleClick() {
-    window.location.href = "/khajrana";
+    window.location.href = "/babaradevra";
   }
 
   function handleUpdate(temple_list) {

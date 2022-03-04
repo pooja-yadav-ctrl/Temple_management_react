@@ -36,7 +36,7 @@ export const Footer = () => {
                             </div>
                             <div class="footer-contents">
                                 <ul>
-                                    <li onClick={()=>history.push('/khajrana')}><a >Home</a></li>
+                                    <li onClick={()=>history.push('/babaradevra')}><a >Home</a></li>
                                     <li onClick={()=>history.push('gallery-image')}><a >Gallery</a></li>
 																		<li onClick={()=>history.push('/pooja')}><a >Pooja</a></li>
 																		<li onClick={()=>history.push('/history')}><a >History</a></li>

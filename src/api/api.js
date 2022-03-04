@@ -5,7 +5,7 @@ const headers = {
   'Content-Type': 'application/json;charset=UTF-8'
 }
 const api = axios.create({
-  baseURL: "http://localhost:3001/",
+  baseURL: "http://localhost:3000/",
   responseType: 'json',
   headers: headers
 })

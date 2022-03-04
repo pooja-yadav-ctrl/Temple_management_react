@@ -7,7 +7,7 @@ export const createTemple = (params) => {
 }
 export const signInUser = (params) => {
     return  axios.create({
-    baseURL: "http://localhost:3001/",
+    baseURL: "http://localhost:3000/",
     responseType: 'json',
   }).post(`/users/sign_in`, params)
   }
@@ -66,8 +66,9 @@ export const addImage = (params) => {
 export const addVedio = (params) => {
     return api.post(`/photo_video_galleries`, params)
 }
-export const getTempleImage = () => {
-    return api.get(`/photo_video_galleries`)
+export const getTempleImage = (params) => {
+    // return api.get(`/photo_video_galleries`)
+    return api.get(`/fetch_single_temple_images?temple_name=${params}`)
 }
 export const updateTemplePooja = (id,params) => {
     return api.patch(`/worships/`+id ,params)

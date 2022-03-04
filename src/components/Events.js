@@ -24,7 +24,7 @@ export const Events = () => {
   const temple_id = localStorage.getItem('temple_id')
   const role = localStorage.getItem('role')
   function handleClick() {
-      window.location.href = "/khajranae";
+      window.location.href = "/babaradevra";
   }
   
   const handleClose = () => setShow(false);
@@ -52,7 +52,7 @@ export const Events = () => {
 	} 
 
   useEffect(() => {
-    const res = getEvents("khajrana")
+    const res = getEvents("babaradevra")
 			res.then((result) => {
 				setEventInfo(result.data)
 			})

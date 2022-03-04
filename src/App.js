@@ -39,7 +39,7 @@ function App() {
        <Router>
          <Header/>
          <Switch>
-            <Route path="/khajrana" component={Home}/>
+            <Route path="/babaradevra" component={Home}/>
             <Route path="/gallery-image" component={GalleryImages}/>
             <Route path="/gallery-video" component={GalleryVideos}/>
             <Route path="/events" component={Events}/>

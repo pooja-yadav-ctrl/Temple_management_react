@@ -14,7 +14,7 @@ function CreateHistory(props) {
   const TempleInfo = props?.location?.state?.templeInfo
 	const temple_id = localStorage.getItem('temple_id')
 	function handleClick() {
-    window.location.href = "/khajrana";
+    window.location.href = "/babaradevra";
   }
 
   const handleChange = (event,key) => {

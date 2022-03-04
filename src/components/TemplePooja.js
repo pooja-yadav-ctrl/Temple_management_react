@@ -14,7 +14,7 @@ function TemplePooja(props) {
   const [messageType, setmessageType] = useState("success")
   const role = localStorage.getItem('role')
   function handleClick() {
-    window.location.href = "/khajrana";
+    window.location.href = "/babaradevra";
   }
   useEffect(() => {
     const res = getTemplePoojaList(1)

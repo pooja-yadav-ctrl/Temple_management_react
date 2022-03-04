@@ -13,14 +13,14 @@ export const GalleryImages = () => {
   const handleShow = () => setShow(true);
   
   useEffect(() => {
-    const res = getTempleImage()
+    const res = getTempleImage("babaradevra")
 			res.then((result) => {
 				setImage(result.data)
 			})
 	},[])
    console.log('image...',image);
   function handleClick() {
-      window.location.href = "/khajrana";
+      window.location.href = "/babaradevra";
     }
  
   return (
@@ -46,10 +46,10 @@ export const GalleryImages = () => {
                 {image?.photo_video_gallerys?.map((row)=>{
                   return(
                   <>
-                    { row.photo_url != null &&
+                    { row.gallery_photo != null &&
                       <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="single-gallery-wrap">
-                          <img src={row?.photo_url} class="img-fluid gallery-img" alt="Gallery Image"  />     
+                          <img src={row?.gallery_photo} class="img-fluid gallery-img" alt="Gallery Image"  />     
                         </div>
                       </div>
                     }

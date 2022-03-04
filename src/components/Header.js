@@ -48,7 +48,7 @@ export default function Header(props) {
 		})
 	} 
    function handleClick() {
-      window.location.href = "/khajrana";
+      window.location.href = "/babaradevra";
     }
     function handleImage(){
       window.location.href = "/gallery-image"
@@ -107,7 +107,7 @@ export default function Header(props) {
           <div className="row">
             <div className="col-lg-12 d-flex align-items-center">
               <div className=" mt-2 header__logo">
-                 <img src={Title} width="8%" alt="" style={{ borderRadius: "50px"}}/><span className="title-text ml-4">Religious Temple</span> 
+                 <img src={Title} width="8%" alt="" style={{ borderRadius: "50px"}}/><span className="title-text ml-4">Baba Ra Devra Temple</span>
                  
               </div>
               <div class="header-right">
@@ -147,13 +147,13 @@ export default function Header(props) {
                           <li class="active"><a onClick={handleShow}><span>Add Events</span></a></li>
                        </ul>}
                       </li>
-                      <li class="has-children has-children--multilevel-submenu">
+                      {/* <li class="has-children has-children--multilevel-submenu">
                         <a ><span>Donate</span></a>
                         <ul class="submenu">
                           <li class="active"><a onClick={handleOfflineDonation}><span>Offline Donation</span></a></li>
                           <li><a onClick={handleOnlineDonation}><span>Online Donation</span></a></li>
                         </ul>
-                      </li>
+                      </li> */}
                       { role === "admin" && 
                         <>
                           <li class="has-children has-children--multilevel-submenu">
