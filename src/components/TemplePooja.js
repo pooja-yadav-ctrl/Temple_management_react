@@ -17,7 +17,7 @@ function TemplePooja(props) {
     window.location.href = "/babaradevra";
   }
   useEffect(() => {
-    const res = getTemplePoojaList(1)
+    const res = getTemplePoojaList("babaradevra")
 			res.then((result) => {
 				setPoojaInfo(result.data)
 			})
@@ -60,7 +60,7 @@ function TemplePooja(props) {
       <h4 class="text-center text-danger font-weight-bold mb-5"><b>Pooja Timing </b></h4>
         <div class="container">
           <div class="row">
-            {poojaInfo?.worships?.map((row) => { 
+            {poojaInfo?.worship?.map((row) => { 
               var starttime = new Date(row?.start_time) 
               var endtime = new Date(row?.end_time) 
               return(

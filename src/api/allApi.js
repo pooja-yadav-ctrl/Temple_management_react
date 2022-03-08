@@ -51,8 +51,9 @@ export const getTempleHistory = (params) => {
 export const createTemplePooja = (params) => {
     return api.post(`/worships`, params)
 }
-export const getTemplePoojaList = (id) => {
-    return api.get(`/worships`)
+export const getTemplePoojaList = (params) => {
+    // return api.get(`/worships`)
+    return api.get(`/fetch_single_worship_detail?temple_name=${params}`)
 }
 export const deletePooja = (id) => {
     return api.delete(`/worships/`+id)
